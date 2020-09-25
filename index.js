@@ -5,12 +5,8 @@ config = require(path.join(__dirname, 'config.js'));
 
 const T = new Twit(config);
 const imageToBase64 = require('image-to-base64');
-const axios = require('axios');
-const port = process.env.PORT || 3000;
 
 const Discord = require('discord.js');
-const { formatWithOptions } = require('util');
-const { getPriority } = require('os');
 const bot = new Discord.Client();
 
 botstoken = 'NzU2MjAwNjQ0NjQ1MjI0NDU5.X2OYuw.VAnWx3tyopyyMgjPvGUJ8OLzb3M';
@@ -138,7 +134,7 @@ async function tImageHandler(inputMessage) {
       T.post(
         'statuses/update',
         {
-          status: `Success from <@${inputMessage.author.id}> in @FluxNotify`,
+          status: `Success from <@${inputMessage.author.username}> in @FluxNotify`,
           media_ids: new Array(data.media_id_string),
         },
 
